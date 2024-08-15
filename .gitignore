@@ -1,0 +1,25 @@
+.env
+capstone-workspace.code-workspace
+virtual
+.dockerignore
+DE Students capstone Project.pdf
+config
+dbt/ecommerce_dbt/target/
+dbt/ecommerce_dbt/dbt_packages/
+dbt/ecommerce_dbt/logs/
+dbt/ecommerce_dbt/.user.yml
+airflow-pg-conn-id.png
+dags/postgres_gbq_etl_load_2.py
+dags/postgres_gbq_etl_load_2.py
+logs
+postgres-db-volume
+dbt/docker-compose-original.yml
+data/metadata
+data/raw
+ecommerce_dbt/seeds
+ecommerce_dbt/snapshots
+ecommerce_dbt/target
+ecommerce_dbt/tests
+dags/__pycache__
+dbt/ecommerce_dbt/analyses
+README2.md

@@ -1,0 +1,14 @@
+version: 2
+
+sources:
+  - name: ecommerce_data
+    database: influential-sun-416018
+    schema: ecommerce
+    tables:
+      - name: orders
+      - name: products
+      - name: customers
+      - name: order_items
+      - name: sellers
+      - name: geolocation
+      - name: order_payments

@@ -1,0 +1,24 @@
+ecommerce:
+  outputs:
+    dev:
+      dataset: ecommerce
+      keyfile: C:\Users\olivc\OneDrive\Desktop\Frank\Altschool\resources\capstone-project\config\service-account-1.json
+      method: service-account
+      project: influential-sun-416018
+      threads: 1
+      type: bigquery
+  target: dev
+ecommerce_dbt:
+  outputs:
+    dev:
+      dataset: ecommerce
+      job_execution_timeout_seconds: 300
+      job_retries: 1
+      keyfile: C:\Users\olivc\OneDrive\Desktop\Frank\Altschool\resources\capstone-project\config\service-account-1.json
+      location: US
+      method: service-account
+      priority: interactive
+      project: influential-sun-416018
+      threads: 4
+      type: bigquery
+  target: dev
