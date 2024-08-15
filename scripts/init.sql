@@ -2,27 +2,27 @@
 CREATE SCHEMA IF NOT EXISTS ecommerce;
 
 -- Creating tables based on dataset schema
-CREATE TABLE ecommerce.geolocation (
+CREATE TABLE IF NOT EXISTS ecommerce.geolocation (
   geolocation_zip_code_prefix INT PRIMARY KEY,
   geolocation_lat NUMERIC,
   geolocation_lng NUMERIC,
   geolocation_city VARCHAR,
   geolocation_state VARCHAR,
-  created_at TIMESTAMP,
-  modified_at TIMESTAMP
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  modified_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
-CREATE TABLE ecommerce.customers (
+CREATE TABLE IF NOT EXISTS ecommerce.customers (
   customer_id VARCHAR PRIMARY KEY,
   customer_unique_id VARCHAR,
   customer_zip_code_prefix INT REFERENCES ecommerce.geolocation(geolocation_zip_code_prefix),
   customer_city VARCHAR,
   customer_state VARCHAR,
-  created_at TIMESTAMP,
-  modified_at TIMESTAMP
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  modified_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
-CREATE TABLE ecommerce.orders (
+CREATE TABLE IF NOT EXISTS ecommerce.orders (
   order_id VARCHAR PRIMARY KEY,
   customer_id VARCHAR REFERENCES ecommerce.customers(customer_id),
   order_status VARCHAR,
@@ -31,11 +31,11 @@ CREATE TABLE ecommerce.orders (
   order_delivered_carrier_date TIMESTAMP,
   order_delivered_customer_date TIMESTAMP,
   order_estimated_delivery_date TIMESTAMP,
-  created_at TIMESTAMP,
-  modified_at TIMESTAMP
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  modified_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
-CREATE TABLE ecommerce.products (
+CREATE TABLE IF NOT EXISTS ecommerce.products (
   product_id VARCHAR PRIMARY KEY,
   product_category_name VARCHAR,
   product_name_length INT,
@@ -45,20 +45,20 @@ CREATE TABLE ecommerce.products (
   product_length_cm INT,
   product_height_cm INT,
   product_width_cm INT,
-  created_at TIMESTAMP,
-  modified_at TIMESTAMP
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  modified_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
-CREATE TABLE ecommerce.sellers (
+CREATE TABLE IF NOT EXISTS ecommerce.sellers (
   seller_id VARCHAR PRIMARY KEY,
   seller_zip_code_prefix INT REFERENCES ecommerce.geolocation(geolocation_zip_code_prefix),
   seller_city VARCHAR,
   seller_state VARCHAR,
-  created_at TIMESTAMP,
-  modified_at TIMESTAMP
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  modified_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
-CREATE TABLE ecommerce.order_items (
+CREATE TABLE IF NOT EXISTS ecommerce.order_items (
   order_id VARCHAR REFERENCES ecommerce.orders(order_id),
   order_item_id INT,
   product_id VARCHAR REFERENCES ecommerce.products(product_id),
@@ -66,23 +66,23 @@ CREATE TABLE ecommerce.order_items (
   shipping_limit_date TIMESTAMP,
   price NUMERIC,
   freight_value NUMERIC,
-  created_at TIMESTAMP,
-  modified_at TIMESTAMP,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  modified_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (order_id, order_item_id)
 );
 
-CREATE TABLE ecommerce.order_payments (
+CREATE TABLE IF NOT EXISTS ecommerce.order_payments (
   order_id VARCHAR REFERENCES ecommerce.orders(order_id),
   payment_sequence INT,
   payment_type VARCHAR,
   payment_installments INT,
   payment_value NUMERIC,
-  created_at TIMESTAMP,
-  modified_at TIMESTAMP,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  modified_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (order_id, payment_sequence)
 );
 
-CREATE TABLE ecommerce.order_reviews (
+CREATE TABLE IF NOT EXISTS ecommerce.order_reviews (
   review_id VARCHAR PRIMARY KEY,
   order_id VARCHAR REFERENCES ecommerce.orders(order_id),
   review_score INT,
@@ -90,6 +90,6 @@ CREATE TABLE ecommerce.order_reviews (
   review_comment_message VARCHAR,
   review_creation_date TIMESTAMP,
   review_answer_timestamp TIMESTAMP,
-  created_at TIMESTAMP,
-  modified_at TIMESTAMP
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  modified_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
