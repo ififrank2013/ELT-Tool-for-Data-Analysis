@@ -25,3 +25,4 @@ dbt/ecommerce_dbt/analyses
 README2.md
 Development of an ETL Tool for Data Analysis.pptx
 target
+dbt/ecommerce_dbt/profiles.yml

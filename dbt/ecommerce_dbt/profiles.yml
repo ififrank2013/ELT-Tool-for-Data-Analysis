@@ -11,7 +11,7 @@ ecommerce:
 ecommerce_dbt:
   outputs:
     dev:
-      dataset: ecommerce
+      dataset: ecommerce_dbt
       job_execution_timeout_seconds: 300
       job_retries: 1
       keyfile: C:\Users\olivc\OneDrive\Desktop\Frank\Altschool\resources\capstone-project\config\service-account-1.json
