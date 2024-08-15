@@ -10,7 +10,7 @@ dbt/ecommerce_dbt/logs/
 dbt/ecommerce_dbt/.user.yml
 airflow-pg-conn-id.png
 dags/postgres_gbq_etl_load_2.py
-dags/postgres_gbq_etl_load_2.py
+dags/postgresql_to_gbq_etl_3.py
 logs
 postgres-db-volume
 dbt/docker-compose-original.yml
@@ -24,3 +24,4 @@ dags/__pycache__
 dbt/ecommerce_dbt/analyses
 README2.md
 Development of an ETL Tool for Data Analysis.pptx
+target
