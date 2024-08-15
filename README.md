@@ -1,2 +1,2 @@
-# ELT-Tool-for-Data-Analysis
-Development of an Extract Load and Transform (ELT) Tool for Data Analysis of Kaggle Data using Docker, PostgreSQL, Airflow, Data Build Tool (DBT), Google Cloud Bucket, BigQuery and Python
+# ELT Tool for Data Analysis
+This project was embarked on to develop a tool for automatic extraction, loading, transformation and modelling of a Brazilian Orders data made at Alist Store and hosted on Kaggle. The tool uses a combination of Docker, PostgreSQL, Airflow, Data Build Tool (DBT), Google Cloud Bucket, BigQuery and Python to acheive an end-to-end engineering of this data set. It can therefore be deployed to automate the ELT/ETL process for other big data.
